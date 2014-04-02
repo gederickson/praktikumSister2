@@ -6,12 +6,27 @@ Created on Apr 2, 2014
 # import socket module
 import socket
 import sys 
- 
+import urllib
+from elementtree.ElementTree import parse
+
+
+WEATHER_URL = 'http://data.bmkg.go.id/statistiksrgempa2012-01.xml'
+rss = parse(urllib.urlopen(WEATHER_URL)).getroot()
+
+messageGempa=''
+arrayGempa = []
+for gempa in rss.findall('gempa'):
+    magnitude = gempa.find('Magnitude').text
+    arrayGempa.append(magnitude)
+    jumlah = gempa.find('Jumlah').text
+    arrayGempa.append(jumlah)
+    messageGempa = messageGempa+'\nmagnitude = '+magnitude+ ' jumlah = '+jumlah+'\n'
+    
 # creating socket server object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
  
 # bind socket server to defined server address and port in tuple
-server_socket.bind(('localhost', 5000))
+server_socket.bind(('localhost', 5111))
  
 # listening connection from client, only 1 backlog
 server_socket.listen(1)
@@ -27,7 +42,7 @@ try:
         print "From client: " + message            
      
         # send message back to client
-        client_socket.send(message)
+        client_socket.send(messageGempa)
         
         # close client socket
         client_socket.close()
