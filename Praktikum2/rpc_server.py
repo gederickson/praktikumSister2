@@ -50,6 +50,7 @@ class RPCServer:
         
     def getRSS(self, url):
         informasi=[]
+        message =''
         rss = parse(urllib.urlopen(url)).getroot()
         
         for data in rss.findall('gempa'):
@@ -57,9 +58,11 @@ class RPCServer:
             jumlah = data.find('Jumlah').text
             informasi.append([magnitude,jumlah])
            
-            print 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
-            print'\n================================'
-        return informasi
+            #print 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
+            message = message + 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
+            #print'\n================================'
+        #return informasi
+        return message;
         
         
 

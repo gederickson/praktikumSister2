@@ -10,7 +10,7 @@ if __name__ == '__main__':
     proxy = xmlrpclib.ServerProxy("http://localhost:65530")
     #url = raw_input("input feed link >> ")
     url = 'http://data.bmkg.go.id/statistiksrgempa2012.xml'
-    feeds = []
+    feeds = ''
     feeds = proxy.getRSS(url)
     #print feeds['channel_title']
     #print feeds['channel_links']
@@ -22,4 +22,4 @@ if __name__ == '__main__':
         #print feed['links']
         #print feed['summary']
         #print "----------------------------------------------"
-    #print feed
+    print feeds
