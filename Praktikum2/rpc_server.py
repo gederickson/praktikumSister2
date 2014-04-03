@@ -15,39 +15,7 @@ class RPCServer:
     '''
     classdocs
     '''
-    
-    #def getRSS(self,url):
-        #feeds = feedparser.parse(url)
-        
-        #print "Channel/Feed title : " + str(feeds.feed.title).encode('utf-8')
-        #print "Channel link : " + str(feeds.feed.link).encode('utf-8')
-        
-        #for feed in feeds['entries']:
-            #print "Title : "+str(feed.title).encode('utf-8')
-            #print "Authors : "+str(feed.authors).encode('utf-8')
-            #print "Pub. Date : "+str(feed.published).encode('utf-8')
-            #print "Links : "+str(feed.links).encode('utf-8')
-            #print "Summary : "+str(feed.summary).encode('utf-8')
-            #print "--------------------------------"
-        
-        
-        #xml = {}
-        #xml['channel_title'] = "Channel/Feed title : " + str(feeds.feed.title).encode('utf-8')
-        #xml['channel_links'] = "Channel link : " + str(feeds.feed.link).encode('utf-8')
-        #collection = []
-        #i = 0
-        #for feed in feeds['entries']:
-            #data = {}
-            #data['title'] = str(feed.title).encode('utf-8')
-            #data['authors'] = str(feed.authors).encode('utf-8')
-            #data['published'] = str(feed.published).encode('utf-8')
-            #data['links'] = str(feed.links).encode('utf-8')
-            #data['summary'] = str(feed.summary).encode('utf-8')
-            #collection.append(data)
-            #i+=1
-        #xml['entries'] = collection
-        #return xml
-        
+           
     def getRSS(self, url):
         informasi=[]
         message =''
@@ -58,10 +26,9 @@ class RPCServer:
             jumlah = data.find('Jumlah').text
             informasi.append([magnitude,jumlah])
            
-            #print 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
             message = message + 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
             print'\n================================'
-        #return informasi
+      
         return message;
         
         

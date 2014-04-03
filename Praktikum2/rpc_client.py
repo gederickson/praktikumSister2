@@ -40,18 +40,10 @@ if __name__ == '__main__':
         url = 'http://data.bmkg.go.id/statistiksrgempa2011-11.xml'
     elif var == 12:
         url = 'http://data.bmkg.go.id/statistiksrgempa2011-12.xml'
-    #url = raw_input("input feed link >> ")
-    #url = 'http://data.bmkg.go.id/statistiksrgempa2012.xml'
+    else: 
+        print "Data tidak ditemukan"
+   
     feeds = ''
     feeds = proxy.getRSS(url)
-    #print feeds['channel_title']
-    #print feeds['channel_links']
-    #print ""
-    #for feed in feeds['entries']:
-        #print feed['title']
-        #print feed['authors']
-        #print feed['published']
-        #print feed['links']
-        #print feed['summary']
-        #print "----------------------------------------------"
+   
     print feeds
