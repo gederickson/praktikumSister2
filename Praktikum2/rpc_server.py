@@ -60,7 +60,7 @@ class RPCServer:
            
             #print 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
             message = message + 'Magnitude\t: '+magnitude+'\n'+'Jumlah\t\t: '+jumlah+'\n'
-            #print'\n================================'
+            print'\n================================'
         #return informasi
         return message;
         
